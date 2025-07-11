@@ -48,7 +48,7 @@ it('can be used to configure metadata', async ({ page }) => {
   await expect(page).toHaveTitle('David Meloyan');
 
   await page.goto('/hy');
-  await expect(page).toHaveTitle('Դավիդ Մելոյան');
+  await expect(page).toHaveTitle('Դավիթ Մելոյան');
 
   await page.goto('/ru');
   await expect(page).toHaveTitle('Давид Мелоян');
@@ -59,7 +59,7 @@ it('can be used to localize the page', async ({ page }) => {
   await page.getByRole('heading', { name: 'David Meloyan' });
 
   await page.goto('/hy');
-  await page.getByRole('heading', { name: 'Դավիդ Մելոյան' });
+  await page.getByRole('heading', { name: 'Դավիթ Մելոյան' });
 
   await page.goto('/ru');
   await page.getByRole('heading', { name: 'Давид Мелоян' });
@@ -157,7 +157,7 @@ it('provides a manifest', async ({ page }) => {
   const response = await page.goto('/manifest.webmanifest');
   const body = await response!.json();
   await expect(body).toEqual({
-    name: expect.stringMatching(/David Meloyan|Դավիդ Մելոյան|Давид Мелоян/),
+    name: expect.stringMatching(/David Meloyan|Դավիթ Մելոյան|Давид Мелоян/),
     start_url: '/',
     theme_color: '#101E33'
   });

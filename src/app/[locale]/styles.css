@@ -5,7 +5,7 @@
 @layer base {
     :root {
         --bg-primary: transparent;
-        --bg: #fca093;
+        --bg: #dc7668;
         --text-primary: #000000;
         --button-bg: #5fc3e7;
         --button-text: #ffffff;
@@ -21,6 +21,9 @@
         --select-text: #000000;
         --select-arrow: #000000;
         --about-text: #462e2e;
+        --header-bg: #9d69628c;
+        --scills: #ffffff78;
+
     }
 
     .dark {
@@ -41,6 +44,8 @@
         --select-text: #ffffff;
         --select-arrow: #5fc3e7;
         --about-text: #ffffff;
+        --header-bg: #121a2aa6;
+        --scills: #9898987d;
 
     }
 

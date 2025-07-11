@@ -43,7 +43,7 @@ export default function LocaleSwitcherSelect({
       >
         <p className="sr-only">{label}</p>
         <select
-            className={clsx('inline-flex border-none bg-[var(--nav-bg)] text-[var(--nav-text)] outline-none  text-base appearance-none py-2 px-3 ')}
+            className={clsx('inline-flex cursor-pointer border-none bg-[var(--nav-bg)] text-[var(--nav-text)] outline-none  text-base appearance-none py-2 px-3 ')}
             defaultValue={defaultValue}
             disabled={isPending}
             onChange={onSelectChange}

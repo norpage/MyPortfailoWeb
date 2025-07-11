@@ -2,6 +2,7 @@ import { Locale, useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { use } from 'react';
 import PageLayout from '@/components/PageLayout';
+import ProjectsSection from "@/components/ProjectsSection";
 
 type Props = {
     params: Promise<{ locale: Locale }>;
@@ -12,16 +13,11 @@ export default function PathnamesPage({ params }: Props) {
 
     setRequestLocale(locale);
 
-    const t = useTranslations('PathnamesPage');
+    const t = useTranslations('Projects');
 
     return (
         <PageLayout title={t('title')}>
-            <div className="max-w-[490px]">
-                {t.rich('description', {
-                    p: (chunks) => <p className="mt-4 text-[var(--text-primary)]">{chunks}</p>,
-                    code: (chunks) => <code className="font-mono">{chunks}</code>,
-                })}
-            </div>
+            <ProjectsSection/>
         </PageLayout>
     );
 }

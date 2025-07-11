@@ -17,13 +17,20 @@
   "Manifest": {
     "name": "David Meloyan"
   },
+  "FirstSection": {
+    "hello": "Hello",
+    "im": "I’m David",
+    "softDev": "Web Developer",
+    "gotProject": "Got a project?",
+    "myResume": "My resume"
+  },
   "Navigation": {
     "myName": "David Meloyan",
     "home": "Home",
     "pathnames": "Pathnames",
     "contacts": "Contacts",
     "projects": "Projects",
-    "about": "About"
+    "about": "About me"
   },
   "NotFoundPage": {
     "description": "Please double-check the browser address bar or use the navigation to go to a known page.",
@@ -55,7 +62,7 @@
   },
   "About": {
     "title": "About me",
-    "description": "I started my software journey from photography. Through that, I learned to love the process of creating from scratch. Since then, this has led me to software development as it fulfills my love for learning and building things.",
+    "description": "The love for creating has always been a part of me. When I discovered that programming allows ideas to become reality, I realized it could be more than just a tool. It became my path — where logic meets creativity.",
     "webDev": "Website Development",
     "botDev": "Bot Development",
     "hosting": "Website Hosting",
@@ -63,5 +70,43 @@
     "satisfaction": "Client satisfaction",
     "experience": "Years of experience",
     "projectsTitle": "Projects"
+  },
+  "Projects": {
+    "title": "Projects",
+    "viewProject": "View project",
+    "viewGithub": "View Github",
+    "SyntaxAcademy": {
+      "title": "Syntax Academy",
+      "description": "I created a modern web page using Next.js and Tailwind CSS for my academy."
+    },
+    "MovieNest": {
+      "title": "MovieNest",
+      "description": "Used Next.js and APIs to search, display, and download movies."
+    },
+    "jsGames": {
+      "title": "JS Games",
+      "description": "Used JavaScript to implement the functionality of various games."
+    },
+    "weddings": {
+      "title": "Web Invitations",
+      "description": "Unique and modern web invitations for various occasions."
+    },
+    "dowBot": {
+      "title": "YouTube mp3 and mp4 Downloader Bot",
+      "description": "Built with Node.js using ytdl-core and fluent-ffmpeg to download audio or video from YouTube as per user’s choice."
+    }
+  },
+  "Contacts": {
+    "title": "Contacts",
+    "haveProject": "Have a project?",
+    "letsTalk": "Let's talk!",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message"
+
+  },
+  "Footer": {
+    "myName": "David Meloyan",
+    "description": "Designed with love, all right reserved for David Meloyan."
   }
 }
