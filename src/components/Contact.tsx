@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import axios from "axios";
-import {FaCheckCircle, FaTimesCircle} from "react-icons/fa";
-import {useTranslations} from "next-intl";
+import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 
 interface FormData {
     name: string;
@@ -10,46 +11,34 @@ interface FormData {
     message: string;
 }
 
-
 interface ModalProps {
     message: string;
-    type: 'success' | 'error';
+    type: "success" | "error";
     onClose: () => void;
 }
 
 const MessageModal: React.FC<ModalProps> = ({ message, type, onClose }) => {
     React.useEffect(() => {
-        function handleEsc(e: KeyboardEvent) {
+        const handleEsc = (e: KeyboardEvent) => {
             if (e.key === "Escape") onClose();
-        }
+        };
         window.addEventListener("keydown", handleEsc);
-
-        // Ավելացնում ենք ավտոմատ փակելու timeout
         const timer = setTimeout(() => {
             onClose();
-        }, 3000); // 3 վարկյան անց կփակի modal-ը
-
+        }, 3000);
         return () => {
             window.removeEventListener("keydown", handleEsc);
             clearTimeout(timer);
         };
     }, [onClose]);
 
-    // ...modal JSX նույնն է
-
     return (
         <>
-            {/* Overlay */}
             <div
                 className="fixed inset-0 z-40 bg-[#121a2a] bg-opacity-80 backdrop-blur-sm"
                 onClick={onClose}
             />
-
-            {/* Modal */}
-            <div
-                className="fixed z-50 top-1/2 left-1/2 max-w-sm w-full p-6 rounded-lg shadow-lg
-          -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 text-white"
-            >
+            <div className="fixed z-50 top-1/2 left-1/2 max-w-sm w-full p-6 rounded-lg shadow-lg -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 text-white">
                 <div className="flex items-center justify-center mb-4">
                     {type === "success" ? (
                         <FaCheckCircle className="text-green-400 text-4xl" />
@@ -66,7 +55,6 @@ const MessageModal: React.FC<ModalProps> = ({ message, type, onClose }) => {
                 </button>
             </div>
         </>
-
     );
 };
 
@@ -76,11 +64,21 @@ const Contact: React.FC = () => {
         email: "",
         message: "",
     });
-    const t = useTranslations('Contacts');
 
+    const t = useTranslations("Contacts");
     const [loading, setLoading] = React.useState(false);
     const [modalMessage, setModalMessage] = React.useState("");
-    const [modalType, setModalType] = React.useState<"success" | "error" | "">("");
+    const [modalType, setModalType] = React.useState<"success" | "error" | "">(
+        ""
+    );
+    const fields = ["name", "email", "message"] as const;
+    type Field = typeof fields[number];
+
+    const fieldLabels: Record<Field, string> = {
+        name: t('name'),
+        email: t('email'),
+        message: t('message'),
+    };
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -100,7 +98,7 @@ const Contact: React.FC = () => {
                 setFormData({ name: "", email: "", message: "" });
             }
         } catch (err) {
-            console.error(err);
+            console.log(err);
             setModalMessage("Something went wrong. Please try again.");
             setModalType("error");
         } finally {
@@ -109,7 +107,12 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <div className="w-full flex flex-col md:flex-row justify-between items-center p-6 md:p-10 text-white">
+        <motion.div
+            initial={{opacity: 0, rotateX: -45, scale: 0.9}}
+            animate={{opacity: 1, rotateX: 0, scale: 1}}
+            transition={{duration: 1, ease: "easeOut"}}
+            className="w-full flex flex-col min-[720px]:flex-row gap-[15%] justify-center items-center p-6 min-[500px]:p-10 text-white"
+        >
             {modalType && modalMessage && (
                 <MessageModal
                     message={modalMessage}
@@ -121,77 +124,93 @@ const Contact: React.FC = () => {
                 />
             )}
 
-            <div className="mb-6 md:mb-0 md:w-1/2">
-                <h2 className="text-3xl md:text-4xl text-nowrap font-bold mb-4">
-                    {t('haveProject')}
+            {/* LEFT SECTION */}
+            <motion.div
+                initial={{opacity: 0, x: -150, rotateY: 60}}
+                animate={{opacity: 1, x: 0, rotateY: 0}}
+                transition={{duration: 1, delay: 0.3}}
+
+            >
+                <h2 className="text-3xl min-[500px]:text-4xl text-nowrap font-bold mb-4">
+                    {t("haveProject")}
                 </h2>
 
-                <h3 className="relative ml-8 text-2xl mb-6">
-                    {t('letsTalk')}
-                    <hr className="absolute border-[var(--gradient-via-line)] top-3/4 left-[-360px] w-[350px]" />
-                </h3>
-                <button
-                    type="submit"
+                <motion.h3
+                    initial={{opacity: 0, x: -100, rotateY: 90}}
+                    animate={{opacity: 1, x: 0, rotateY: 0}}
+                    transition={{duration: 1.2, ease: "easeOut", delay: 0.5}}
+                    className="relative ml-8 text-2xl mb-6"
+                >
+                    {t("letsTalk")}
+                    <hr className="absolute border-[var(--gradient-via-line)] top-3/4 left-[-560px] w-[550px]"/>
+                </motion.h3>
+                <motion.button
+                    whileHover={{scale: 1.05}}
+                    whileTap={{scale: 0.95}}
                     onClick={handleSubmit}
                     disabled={loading}
-                    className="bg-[var(--gradient-via-line)] text-white px-6 py-2 rounded hover:opacity-90 transition disabled:opacity-50"
+                    className="bg-[var(--gradient-via-line)] max-[720px]:hidden text-white px-6 py-2 rounded hover:opacity-90 transition disabled:opacity-50"
                 >
-                    {loading ? "Sending..." : "Submit"}
-                </button>
-            </div>
+                    {loading ? t("sending") :  t("send")}
+                </motion.button>
 
-            <div className="md:w-1/2">
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-300">
-                            {t("name")}
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            className="mt-1 block w-full bg-[var(--nav-bg)] border border-[var(--scills)] duration-500 rounded-md p-2 text-white"
-                        />
-                    </div>
-                    <div>
-                        <label
-                            htmlFor="email"
-                            className="block text-sm font-medium text-gray-300"
+            </motion.div>
+
+            {/* RIGHT SECTION - FORM */}
+            <motion.div
+                initial={{opacity: 0, x: 150, rotateY: -60}}
+                animate={{opacity: 1, x: 0, rotateY: 0}}
+                transition={{duration: 1, delay: 0.6}}
+            >
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
+                    {fields.map((field, index) => (
+                        <motion.div
+                            key={field}
+                            initial={{opacity: 0, y: 20}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{duration: 0.5, delay: 0.7 + index * 0.2}}
                         >
-                            {t("email")}
+                            <label
+                                htmlFor={field}
+                                className="block text-sm font-medium text-gray-300"
+                            >
+                                {fieldLabels[field]}
+                            </label>
 
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="mt-1 block w-full bg-[var(--nav-bg)] border border-[var(--scills)]  duration-500 rounded-md p-2 text-white"
-                        />
-                    </div>
-                    <div>
-                        <label
-                            htmlFor="message"
-                            className="block text-sm font-medium text-gray-300"
-                        >
-                            {t("message")}
-
-                        </label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            rows={4}
-                            className="mt-1 block w-full bg-[var(--nav-bg)] border border-[var(--scills)] duration-500 rounded-md p-2 text-white"
-                        />
-                    </div>
+                            {field === "message" ? (
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    rows={4}
+                                    className="mt-1 block w-full bg-[var(--nav-bg)] border border-[var(--scills)] duration-500 rounded-md p-2 text-white"
+                                />
+                            ) : (
+                                <input
+                                    type={field === "email" ? "email" : "text"}
+                                    id={field}
+                                    name={field}
+                                    value={formData[field as keyof FormData]}
+                                    onChange={handleChange}
+                                    className="mt-1 block w-full bg-[var(--nav-bg)] border border-[var(--scills)] duration-500 rounded-md p-2 text-white"
+                                />
+                            )}
+                        </motion.div>
+                    ))}
                 </form>
-            </div>
-        </div>
+            </motion.div>
+            <motion.button
+                whileHover={{scale: 1.05}}
+                whileTap={{scale: 0.95}}
+                onClick={handleSubmit}
+                disabled={loading}
+                className="bg-[var(--gradient-via-line)] min-[720px]:hidden text-white px-6 mt-6 py-2 rounded hover:opacity-90 transition disabled:opacity-50"
+            >
+                {loading ? t("sending") : t("send")}
+
+            </motion.button>
+        </motion.div>
     );
 };
 

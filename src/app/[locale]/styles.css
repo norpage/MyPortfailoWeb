@@ -69,3 +69,15 @@
         @apply bg-[var(--select-bg)] text-[var(--select-text)] border border-[var(--select-text)] rounded-md transition-colors duration-300;
     }
 }
+
+.service-label {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+.service-label.hidden {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+.service-label.visible {
+    opacity: 1;
+    transform: translateX(0);
+}

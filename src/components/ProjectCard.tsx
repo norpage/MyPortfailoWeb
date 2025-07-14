@@ -42,7 +42,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     observer.disconnect();
                 }
             },
-            { threshold: 1.0 }
+            { threshold: 0.5 }
         );
         if (ref.current) {
             observer.observe(ref.current);
@@ -56,20 +56,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div
             ref={ref}
             className={`flex ${+i % 2 ? 'flex-row-reverse' : ''} w-full p-5 justify-center items-center rounded-lg gap-10 overflow-hidden
-            transform transition-all duration-700 ease-out
+            transform transition-all max-[900px]:flex-col duration-500 ease-out
             ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} `}
         >
-            <div className="relative w-[500px] h-full">
+            <Link
+                href={demo}
+                target="_blank" className="relative w-full max-w-[500px] h-full">
                 <Image
                     src={image}
                     alt={title}
                     width={1000}
                     height={800}
-                    className="object-center hover:scale-110 duration-500 w-full h-full"
+                    className="object-contain hover:scale-110 duration-500 w-full h-auto"
                 />
-            </div>
-            <div>
-                <h3 className="text-xl font-semibold text-white flex gap-6 mb-2 relative group">
+            </Link>
+
+            <div className='max-w-[750px]'>
+                <h3 className="text-xl font-semibold text-white   flex max-[900px]:justify-center gap-6 mb-2 relative group">
                     {title}
                     <div
                         onMouseEnter={() => setShowQR(true)}
@@ -91,20 +94,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                         )}
                     </div>
                 </h3>
-                <p className="text-[var(--about-text)] mb-4">{description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+                <p className="text-[var(--about-text)] max-[900px]:text-center max-[470px]:text-[12px] mb-4">{description}</p>
+                <div className="flex flex-wrap max-[900px]:justify-center gap-2 mb-4">
                     {tags.map((tag, idx) => (
-                        <span key={idx} className="bg-gray-700 text-white text-xs px-2 py-1 rounded-full">
+                        <span key={idx} className="bg-gray-700 text-white text-xs max-[470px]:text-[9px] px-2 py-1 rounded-full">
                           {tag}
                         </span>
                     ))}
                 </div>
-                <div className="flex gap-4">
+                <div className="flex max-[900px]:justify-center max-[470px]:text-[10px] gap-4">
                     <Link
                         href={github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-[var(--gradient-via-line)] text-[15px] hover:opacity-90 text-white text-nowrap px-4 py-2 rounded transition"
+                        className="bg-[var(--gradient-via-line)] hover:opacity-90 text-white text-nowrap px-4 py-2 rounded transition"
                     >
                         {t('viewGithub')}
                     </Link>
@@ -112,7 +115,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                         href={demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className=" text-white px-4 flex gap-2 py-2 rounded text-[15px] text-nowrap transition border-b border-[var(--gradient-via-line)]"
+                        className=" text-white px-4 flex gap-2 py-2 rounded text-nowrap transition border-b border-[var(--gradient-via-line)]"
                     >
                         {t('viewProject')} <GoLink className={'mt-1'}/>
                     </Link>

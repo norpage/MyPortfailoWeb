@@ -92,7 +92,7 @@
       "description": "Unique and modern web invitations for various occasions."
     },
     "dowBot": {
-      "title": "YouTube mp3 and mp4 Downloader Bot",
+      "title": "Telegram Bot",
       "description": "Built with Node.js using ytdl-core and fluent-ffmpeg to download audio or video from YouTube as per user’s choice."
     }
   },
@@ -102,11 +102,14 @@
     "letsTalk": "Let's talk!",
     "name": "Name",
     "email": "Email",
-    "message": "Message"
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending․․․"
 
   },
   "Footer": {
     "myName": "David Meloyan",
-    "description": "Designed with love, all right reserved for David Meloyan."
+    "description": "Designed with love.",
+    "rightReserved": "All right reserved."
   }
 }

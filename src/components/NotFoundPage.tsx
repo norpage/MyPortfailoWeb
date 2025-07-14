@@ -1,12 +1,11 @@
-import {useTranslations} from 'next-intl';
 import PageLayout from './PageLayout';
+import Image from "next/image";
 
 export default function NotFoundPage() {
-  const t = useTranslations('NotFoundPage');
 
   return (
-    <PageLayout title={t('title')}>
-      <p className="max-w-[460px]">{t('description')}</p>
+    <PageLayout title='error'>
+     <Image src={'/404.png'} alt={'Error'} width={1500} height={900} className={'w-full h-auto'}/>
     </PageLayout>
   );
 }

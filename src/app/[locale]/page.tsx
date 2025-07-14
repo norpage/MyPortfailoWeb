@@ -21,9 +21,10 @@ export default function IndexPage({params}: Props) {
     return (
         <PageLayout title={t('title')}>
             <AboutSection/>
-            {/* Projects heading */}
-            <div className="mt-20 text-center">
-                <h2 className="text-3xl font-bold">{t('projectsTitle')}</h2>
+
+            <div className="py-16 text-center">
+                <h2 className="text-2xl font-semibold leading-tight tracking-tight md:text-3xl text-[var(--text-primary)]">
+                    {t('projectsTitle')}</h2>
                 <div className="relative h-10 flex justify-center">
                     <div className="w-1 h-14 bg-red-500 mt-2"/>
                     <GoDot className='bottom-[-45px] absolute text-[var(--gradient-via-line)]'/>

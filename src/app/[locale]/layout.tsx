@@ -40,7 +40,7 @@ export default async function LocaleLayout({children, params}: Props) {
 
     return (
         <html className="h-full" lang={locale} suppressHydrationWarning>
-        <body className={clsx(inter.className, 'flex h-full flex-col bg-[var(--bg)]')}>
+        <body className={clsx(inter.className, 'flex h-full overflow-x-hidden flex-col bg-[var(--bg)]')}>
         <Providers>
             <NextIntlClientProvider>
                 <Navigation locale={locale}/>

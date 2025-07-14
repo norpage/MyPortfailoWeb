@@ -57,7 +57,7 @@ export default function ProjectsSection() {
         {
             title: t('dowBot.title'),
             description: t('dowBot.description'),
-            tags: ['JavaScript','Node.js', 'PostgreSQL', 'API', 'Version control','Telegram-API'],
+            tags: ['JavaScript','Node.js', 'PostgreSQL', 'API', 'Version control','Telegram-API','Ubuntu Server'],
             qrCode: '/projectsQr/dowBotQr.png',
             image: '/projects/dowBot.png',
             github: 'https://github.com/norpage/DowBot',
@@ -66,12 +66,10 @@ export default function ProjectsSection() {
     ];
 
     return (
-        <section className="py-16 px-4">
-            <div className="flex  flex-col gap-6 w-full">
+        <section className="flex pb-16 flex-col gap-6 w-full">
                 {projects.map((project, index) => (
                     <ProjectCard key={index} i={index} {...project} />
                 ))}
-            </div>
         </section>
     );
 }
