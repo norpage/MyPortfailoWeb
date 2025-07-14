@@ -1,11 +1,24 @@
-# example-app-router
+# 🌐 Personal Web Portfolio
 
-An example that showcases basic usage of `next-intl` with the App Router, including internationalized routing.
+Welcome to the repository of my personal web portfolio. This website is designed to showcase my programming skills, projects, and creative work.
 
-[Demo](https://next-intl-example-app-router.vercel.app/)
+## 🔧 Technologies Used
 
-## Deploy your own
+- **React.js** – Component-based architecture and interactive UI
+- **Next.js** – Improved SEO and server-side rendering
+- **TypeScript** – Safer and more predictable code
+- **Tailwind CSS** – Fast and flexible styling
+- **Framer Motion** – For smooth animations
+- **EmailJS / Nodemailer** – To handle contact form submissions
 
-By deploying to [Vercel](https://vercel.com), you can check out the example in action. Note that you'll be prompted to create a new GitHub repository as part of this, allowing you to make subsequent changes.
+## 🚀 Main Sections of the Website
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/amannn/next-intl/tree/main/examples/example-app-router)
+- **Home** – Intro and background image
+- **About Me** – Skills, experience, and a brief bio
+- **Projects** – A showcase of my most important projects
+- **Skills** – A list or slider of the technologies I use
+- **Contact** – A form for getting in touch with me
+
+## 📦 Visit My Web Portfolio
+
+👉 [David Meloyan](https://davidmeloyan.syntaxacade.my)
