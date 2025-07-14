@@ -9,7 +9,7 @@ Welcome to the repository of my personal web portfolio. This website is designed
 - **TypeScript** – Safer and more predictable code
 - **Tailwind CSS** – Fast and flexible styling
 - **Framer Motion** – For smooth animations
-- **EmailJS / Nodemailer** – To handle contact form submissions
+- **Nodemailer** – To handle contact form submissions
 
 ## 🚀 Main Sections of the Website
 
