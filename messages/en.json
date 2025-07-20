@@ -104,8 +104,9 @@
     "email": "Email",
     "message": "Message",
     "send": "Send",
-    "sending": "Sending․․․"
-
+    "sending": "Sending․․․",
+    "success": "Your message has been sent!",
+    "sendWrong": "Something went wrong. Please try again."
   },
   "Footer": {
     "myName": "David Meloyan",

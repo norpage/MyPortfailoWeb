@@ -93,13 +93,13 @@ const Contact: React.FC = () => {
         try {
             const res = await axios.post("/api/contact", formData);
             if (res.data.success) {
-                setModalMessage("Your message has been sent!");
+                setModalMessage(t("success"));
                 setModalType("success");
                 setFormData({ name: "", email: "", message: "" });
             }
         } catch (err) {
             console.log(err);
-            setModalMessage("Something went wrong. Please try again.");
+            setModalMessage(t("sendWrong"));
             setModalType("error");
         } finally {
             setLoading(false);
