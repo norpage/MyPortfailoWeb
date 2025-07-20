@@ -51,7 +51,7 @@ const MessageModal: React.FC<ModalProps> = ({ message, type, onClose }) => {
                     onClick={onClose}
                     className="mt-6 block mx-auto px-4 py-2 bg-white text-black rounded hover:bg-gray-200 transition"
                 >
-                    Close
+                    {t('close')}
                 </button>
             </div>
         </>

@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { motion, Variants } from 'framer-motion'; // Import Variants type
 import NavigationLink from '@/components/NavigationLink';
 import { TechnologiesLine } from '@/components/TechnologiesLine';
+import Link from "next/link";
 
 const FirstSection = () => {
     const t = useTranslations('FirstSection');
@@ -68,11 +69,13 @@ const FirstSection = () => {
                             >
                                 {t('gotProject')}
                             </NavigationLink>
-                            <button
-                                className="bg-[var(--nav-bg)] text-[var(--nav-text)] text-nowrap px-6 py-2 rounded hover:opacity-90 transition"
+                            <Link href="/MyCV.pdf" download="David Meloyan CV"
+                                  className="bg-[var(--nav-bg)] text-[var(--nav-text)] text-nowrap px-6 py-2 flex justify-center items-center rounded hover:opacity-90 transition"
                             >
                                 {t('myResume')}
-                            </button>
+                            </Link>
+
+
                         </div>
                     </motion.div>
 
