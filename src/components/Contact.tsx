@@ -4,6 +4,8 @@ import axios from "axios";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import ReactDOM from "react-dom";
+
 
 interface FormData {
     name: string;
@@ -16,6 +18,8 @@ interface ModalProps {
     type: "success" | "error";
     onClose: () => void;
 }
+
+
 
 const MessageModal: React.FC<ModalProps> = ({ message, type, onClose }) => {
     const t = useTranslations("Contacts");
@@ -42,7 +46,11 @@ const MessageModal: React.FC<ModalProps> = ({ message, type, onClose }) => {
         };
     }, [onClose]);
 
-    return (
+    // Եթե դեռ չկա #modal-root, ոչինչ չվերադարձնի
+    const modalRoot = typeof window !== 'undefined' ? document.getElementById("modal-root") : null;
+    if (!modalRoot) return null;
+
+    return ReactDOM.createPortal(
         <>
             <div
                 className="fixed inset-0 z-40 bg-[#121a2a] bg-opacity-80 backdrop-blur-sm"
@@ -61,10 +69,11 @@ const MessageModal: React.FC<ModalProps> = ({ message, type, onClose }) => {
                     onClick={onClose}
                     className="mt-6 block mx-auto px-4 py-2 bg-white text-black rounded hover:bg-gray-200 transition"
                 >
-                    {t("close")} ({secondsLeft}s)
+                    {t("close")} ({secondsLeft}{t("s")})
                 </button>
             </div>
-        </>
+        </>,
+        modalRoot
     );
 };
 
@@ -90,6 +99,16 @@ const Contact: React.FC = () => {
         message: t('message'),
     };
 
+    const validateForm = (data: FormData): string | null => {
+        if (!data.name.trim()) return t("nameRequired");
+        if (!data.email.trim()) return t("emailRequired");
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) return t("invalidEmail");
+        if (!data.message.trim()) return t("messageRequired");
+        return null;
+    };
+
+
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
@@ -99,6 +118,14 @@ const Contact: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        const errorMessage = validateForm(formData);
+        if (errorMessage) {
+            setModalMessage(errorMessage);
+            setModalType("error");
+            return;
+        }
+
         setLoading(true);
         try {
             const res = await axios.post("/api/contact", formData);
@@ -115,6 +142,7 @@ const Contact: React.FC = () => {
             setLoading(false);
         }
     };
+
 
     return (
         <motion.div

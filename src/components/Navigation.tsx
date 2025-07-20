@@ -94,10 +94,10 @@ export default function Navigation({ locale }: { locale: string }) {
                         <ThemeToggle />
                     </div>
 
-                    <BiMenuAltRight
+                    {!isMenuOpen && <BiMenuAltRight
                         onClick={() => setIsMenuOpen(true)}
                         className="lg:hidden text-[28px] cursor-pointer text-[var(--text-primary)]"
-                    />
+                    />}
                 </div>
             </nav>
             <div
@@ -119,7 +119,7 @@ export default function Navigation({ locale }: { locale: string }) {
                         onClick={() => setIsMenuOpen(false)}
                     >
                         <motion.div
-                            className="absolute top-0 right-0 w-64 h-full bg-white dark:bg-zinc-900 shadow-lg p-6 space-y-4 text-[var(--text-primary)]"
+                            className="absolute top-0 right-0 w-64 h-full bg-[var(--header-bg)]  shadow-lg p-6 space-y-4 text-[var(--text-primary)]"
                             initial={{ x: '100%', opacity: 0, scale: 0.95 }}
                             animate={{ x: 0, opacity: 1, scale: 1 }}
                             exit={{ x: '100%', opacity: 0, scale: 0.95 }}

@@ -104,11 +104,17 @@
     "email": "Email",
     "message": "Message",
     "send": "Send",
-    "sending": "Sending․․․",
+    "sending": "Sending...",
     "success": "Your message has been sent!",
     "sendWrong": "Something went wrong. Please try again.",
-    "close": "Close"
+    "close": "Close",
+    "s": "s",
+    "nameRequired": "Please enter your name.",
+    "emailRequired": "Please enter your email.",
+    "invalidEmail": "Please enter a valid email address.",
+    "messageRequired": "Please enter your message."
   },
+
   "Footer": {
     "myName": "David Meloyan",
     "description": "Designed with love.",

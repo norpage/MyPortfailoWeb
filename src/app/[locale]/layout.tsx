@@ -47,6 +47,7 @@ export default async function LocaleLayout({children, params}: Props) {
                 <Navigation locale={locale}/>
                 {children}
                 <Footer/>
+                <div id="modal-root" />
             </NextIntlClientProvider>
         </Providers>
         <Analytics />
