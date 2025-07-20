@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { useTranslations } from "next-intl";
@@ -18,16 +18,26 @@ interface ModalProps {
 }
 
 const MessageModal: React.FC<ModalProps> = ({ message, type, onClose }) => {
-    React.useEffect(() => {
+    const t = useTranslations("Contacts");
+    const [secondsLeft, setSecondsLeft] = useState(3);
+
+    useEffect(() => {
         const handleEsc = (e: KeyboardEvent) => {
             if (e.key === "Escape") onClose();
         };
         window.addEventListener("keydown", handleEsc);
+
+        const interval = setInterval(() => {
+            setSecondsLeft((prev) => prev - 1);
+        }, 1000);
+
         const timer = setTimeout(() => {
             onClose();
         }, 3000);
+
         return () => {
             window.removeEventListener("keydown", handleEsc);
+            clearInterval(interval);
             clearTimeout(timer);
         };
     }, [onClose]);
@@ -51,7 +61,7 @@ const MessageModal: React.FC<ModalProps> = ({ message, type, onClose }) => {
                     onClick={onClose}
                     className="mt-6 block mx-auto px-4 py-2 bg-white text-black rounded hover:bg-gray-200 transition"
                 >
-                    {t('close')}
+                    {t("close")} ({secondsLeft}s)
                 </button>
             </div>
         </>
