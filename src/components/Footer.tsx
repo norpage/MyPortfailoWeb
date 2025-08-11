@@ -15,9 +15,9 @@ export default function Footer() {
                 {/*</p>*/}
 
                 <div className="flex gap-5">
-                    <SocialIcon href="mailto:davidmeloyan99@gmail.com" icon={<IoIosMail />} label="Email" />
+                    <SocialIcon href="mailto:davitmeloyandev@gmail.com" icon={<IoIosMail />} label="Email" />
                     <SocialIcon href="https://github.com/norpage" icon={<FaGithub />} label="GitHub" />
-                    <SocialIcon href="https://www.linkedin.com/in/david-meloyan-611ab52a3/" icon={<FaLinkedinIn />} label="LinkedIn" />
+                    <SocialIcon href="https://www.linkedin.com/in/davit-meloyan-611ab52a3/" icon={<FaLinkedinIn />} label="LinkedIn" />
                 </div>
 
                 <span className="text-xs text-gray-500 ">

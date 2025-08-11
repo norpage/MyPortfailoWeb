@@ -5,28 +5,28 @@
   },
   "IndexPage": {
     "description": "Это базовый пример, демонстрирующий использование <code>next-intl</code> с маршрутизатором Next.js App Router. Попробуйте изменить язык в правом верхнем углу и посмотрите, как меняется содержимое.",
-    "title": "Давид Мелоян"
+    "title": "Давит Мелоян"
   },
   "LocaleLayout": {
-    "title": "Давид Мелоян"
+    "title": "Давит Мелоян"
   },
   "LocaleSwitcher": {
     "label": "Сменить язык",
     "locale": "{locale, select, hy {Հայերեն} en {English} ru {Русский} other {Неизвестно}}"
   },
   "Manifest": {
-    "name": "Давид Мелоян"
+    "name": "Давит Мелоян"
   },
   "FirstSection": {
     "hello": "Привет",
-    "im": "Я Давид",
+    "im": "Я Давит",
     "softDev": "Веб-разработчик",
     "gotProject": "Есть проект?",
     "myResume": "Моё резюме"
   },
 
   "Navigation": {
-    "myName": "Давид Мелоян",
+    "myName": "Давит Мелоян",
     "home": "Главная",
     "pathnames": "Пути",
     "contacts": "Контакты",
@@ -116,7 +116,7 @@
     "messageRequired": "Пожалуйста, введите сообщение."
   },
   "Footer": {
-    "myName": "Давид Мелоян",
+    "myName": "Давит Мелоян",
     "description": "Сделано с любовью.",
     "rightReserved": "Все права защищены."
   }

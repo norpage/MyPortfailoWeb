@@ -13,7 +13,7 @@ it('handles i18n routing', async ({ page }) => {
       .selectOption({ value: 'en' });
 
   await expect(page).toHaveURL('/en');
-  await page.getByRole('heading', { name: 'David Meloyan' });
+  await page.getByRole('heading', { name: 'Davit Meloyan' });
 });
 
 it('handles not found pages', async ({ page }) => {
@@ -45,24 +45,24 @@ it('sets caching headers', async ({ request }) => {
 
 it('can be used to configure metadata', async ({ page }) => {
   await page.goto('/en');
-  await expect(page).toHaveTitle('David Meloyan');
+  await expect(page).toHaveTitle('Davit Meloyan');
 
   await page.goto('/hy');
   await expect(page).toHaveTitle('Դավիթ Մելոյան');
 
   await page.goto('/ru');
-  await expect(page).toHaveTitle('Давид Мелоян');
+  await expect(page).toHaveTitle('Давит Мелоян');
 });
 
 it('can be used to localize the page', async ({ page }) => {
   await page.goto('/en');
-  await page.getByRole('heading', { name: 'David Meloyan' });
+  await page.getByRole('heading', { name: 'Davit Meloyan' });
 
   await page.goto('/hy');
   await page.getByRole('heading', { name: 'Դավիթ Մելոյան' });
 
   await page.goto('/ru');
-  await page.getByRole('heading', { name: 'Давид Мелоян' });
+  await page.getByRole('heading', { name: 'Давит Мелоян' });
 });
 
 it('sets a cookie when necessary', async ({ page }) => {
@@ -157,7 +157,7 @@ it('provides a manifest', async ({ page }) => {
   const response = await page.goto('/manifest.webmanifest');
   const body = await response!.json();
   await expect(body).toEqual({
-    name: expect.stringMatching(/David Meloyan|Դավիթ Մելոյան|Давид Мелоян/),
+    name: expect.stringMatching(/Davit Meloyan|Դավիթ Մելոյան|Давит Мелоян/),
     start_url: '/',
     theme_color: '#101E33'
   });

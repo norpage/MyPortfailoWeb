@@ -69,7 +69,7 @@ const FirstSection = () => {
                             >
                                 {t('gotProject')}
                             </NavigationLink>
-                            <Link href="/MyCV.pdf" download="David Meloyan CV"
+                            <Link href="/MyCV.pdf" download="Davit Meloyan CV"
                                   className="bg-[var(--nav-bg)] text-[var(--nav-text)] text-nowrap px-6 py-2 flex justify-center items-center rounded hover:opacity-90 transition"
                             >
                                 {t('myResume')}
@@ -106,7 +106,7 @@ const FirstSection = () => {
                             src="/me.png"
                             width={1000}
                             height={800}
-                            alt="David"
+                            alt="Davit"
                             className="relative z-20 w-4/5 h-auto object-cover max-[900px]:left-[50px] transition-transform duration-300 ease-out"
                         />
                     </motion.div>

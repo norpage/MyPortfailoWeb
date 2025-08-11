@@ -21,4 +21,4 @@ Welcome to the repository of my personal web portfolio. This website is designed
 
 ## 📦 Visit My Web Portfolio
 
-👉 [David Meloyan](https://davidmeloyan.syntaxacade.my)
+👉 [Davit Meloyan](https://Davitmeloyan.syntaxacade.my)

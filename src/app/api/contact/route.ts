@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
     </p>
 
     <p style="text-align: center; margin-top: 10px;">
-      <a href="https://davidmeloyan.syntaxacade.my" style="
+      <a href="https://Davitmeloyan.syntaxacade.my" style="
         color: #4fc3f7;
         text-decoration: none;
         font-weight: bold;
