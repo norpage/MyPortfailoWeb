@@ -69,7 +69,7 @@ const FirstSection = () => {
                             >
                                 {t('gotProject')}
                             </NavigationLink>
-                            <Link href="/MyCV.pdf" download="Davit Meloyan CV"
+                            <Link href="/Davit Meloyan CV.pdf" download="Davit Meloyan CV"
                                   className="bg-[var(--nav-bg)] text-[var(--nav-text)] text-nowrap px-6 py-2 flex justify-center items-center rounded hover:opacity-90 transition"
                             >
                                 {t('myResume')}
